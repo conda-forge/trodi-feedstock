@@ -1,18 +1,18 @@
 {% set name = "trodi" %}
-{% set version = "0.0.2" %}
+{% set version = "0.1.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: "24d2c526814f6a5d02b37fe1d74efc8eac11965f6973d04267ae78d02fee5d36"
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: bae973aaac58f6a033008e9b80f915fa1c2101cc93a7e23704ca276840073e27
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
   entry_points:
     - trodi = trodi.cli:average_and_label
 
@@ -35,12 +35,12 @@ test:
     - trodi --help
 
 about:
-  home: "https://github.com/scottstanie/trodi/"
-  license: "MIT"
-  license_family: "MIT"
-  license_file: "LICENSE.txt"
-  summary: "Label interferogram pixels or images as outliers"
-  dev_url: "https://github.com/scottstanie/trodi/"
+  home: https://github.com/scottstanie/trodi/
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE.txt
+  summary: Label interferogram pixels or images as outliers
+  dev_url: https://github.com/scottstanie/trodi/
 
 extra:
   recipe-maintainers:
