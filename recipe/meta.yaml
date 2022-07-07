@@ -1,5 +1,5 @@
 {% set name = "trodi" %}
-{% set version = "0.1.0" %}
+{% set version = "0.2.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: bae973aaac58f6a033008e9b80f915fa1c2101cc93a7e23704ca276840073e27
+  sha256: d3968536a2a4f365d7122cf4a9aac9f2418f6d8e22ccaabf0aab2369aac6ddee
 
 build:
   noarch: python
