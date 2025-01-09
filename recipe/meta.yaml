@@ -6,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 2d1ed259ba98c35e282ac490e3287ab3824272052f59843d7cef29f44050d339
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
   entry_points:
     - trodi = trodi.cli:average_and_label
@@ -19,9 +19,9 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
   run:
-    - python >=3.5
+    - python >={{ python_min }}
     - numpy >=1.16.0
     - xarray >=0.16.1
     - h5py >=3.3
@@ -33,6 +33,7 @@ test:
     - trodi
   requires:
     - pytest
+    - python {{ python_min }}
   commands:
     - trodi --help
 
